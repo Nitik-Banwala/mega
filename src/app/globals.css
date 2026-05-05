@@ -1,3 +1,37 @@
 @import "tailwindcss";
 
 /* url(../../public/assets/images/png/team-bg.png) */
+
+.characterSwiper .swiper-slide {
+  transition: all 0.4s ease;
+  transform: scale(0.75);
+  opacity: 0.5;
+  display: flex;
+  justify-content: center;
+}
+
+.characterSwiper .swiper-slide-active {
+  transform: scale(1.15);
+  opacity: 1;
+  z-index: 2;
+}
+
+.characterSwiper .swiper-slide-prev,
+.characterSwiper .swiper-slide-next {
+  transform: scale(0.9);
+  opacity: 0.8;
+}
+
+/* optional glow like your image */
+.characterSwiper .swiper-slide-active .card {
+  box-shadow: 0 0 30px rgba(255, 140, 0, 0.8);
+  border-radius: 16px;
+}
+
+@font-face {
+  font-family:Nau_Sea;
+  src: url(../../public/assets/font/Nau_Sea.otf);
+}
+*{
+  font-family: Nau_sea;
+}

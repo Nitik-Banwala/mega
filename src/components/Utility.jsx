@@ -3,8 +3,8 @@ import React from 'react'
 
 const Utility = () => {
     return (
-        <div className='bg-[#02001F] -mt-1 pb-[265.1px]'>
-            <div className=' flex flex-row gap-6 max-w-330 mx-auto pt-32.5 '>
+        <div className='bg-[#02001F] px-4 -mt-1 pb-[265.1px]'>
+            <div className=' flex flex-col text-center items-center md:text-start md:items-start md:flex-row gap-6 max-w-330 mx-auto pt-32.5 '>
                 <div> 
                     <Image 
                     src={'/assets/images/png/blue-mint.png'}
