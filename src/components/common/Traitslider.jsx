@@ -1,8 +1,6 @@
 "use client"
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation, EffectCoverflow } from 'swiper/modules'
 import { CARDS } from '@/utils/helper'
 
 import 'swiper/css'
@@ -10,10 +8,37 @@ import 'swiper/css/navigation'
 import 'swiper/css/effect-coverflow'
 
 export default function TraitSlider() {
-  const loopCards = CARDS.length < 6 ? [...CARDS, ...CARDS, ...CARDS] : CARDS
+  const [mounted, setMounted] = useState(false)
+  const [SwiperComponents, setSwiperComponents] = useState(null)
+
+  useEffect(() => {
+    // Load swiper only on client
+    const loadSwiper = async () => {
+      const swiperReact = await import('swiper/react')
+      const swiperModules = await import('swiper/modules')
+
+      setSwiperComponents({
+        Swiper: swiperReact.Swiper,
+        SwiperSlide: swiperReact.SwiperSlide,
+        Navigation: swiperModules.Navigation,
+        EffectCoverflow: swiperModules.EffectCoverflow,
+      })
+    }
+
+    loadSwiper()
+    setMounted(true)
+  }, [])
+
+  if (!mounted || !SwiperComponents) return null
+
+  const { Swiper, SwiperSlide, Navigation, EffectCoverflow } = SwiperComponents
+
+  const loopCards =
+    CARDS.length < 6 ? [...CARDS, ...CARDS, ...CARDS] : CARDS
 
   return (
-    <div className="relative  w-full max-w-[1617.1px] mx-auto  overflow-x-hidden overflow-y-visible">
+    <div className="relative w-full max-w-[1617.1px] mx-auto overflow-x-hidden overflow-y-visible">
+      
       <button className="prev-btn absolute left-0 top-1/2 -translate-y-1/2 z-30 cursor-pointer">
         <Image
           src="/assets/images/png/prev.png"
@@ -22,6 +47,7 @@ export default function TraitSlider() {
           alt="prev"
         />
       </button>
+
       <button className="next-btn absolute right-0 top-1/2 -translate-y-1/2 z-30 cursor-pointer">
         <Image
           src="/assets/images/png/next.png"
@@ -30,6 +56,7 @@ export default function TraitSlider() {
           alt="next"
         />
       </button>
+
       <Swiper
         modules={[Navigation, EffectCoverflow]}
         navigation={{
@@ -61,7 +88,6 @@ export default function TraitSlider() {
                   style={{
                     width: 463,
                     height: 648,
-     
                     boxShadow: isActive
                       ? '0 0 24px rgba(212,160,0,0.65), inset 0 0 12px rgba(255,200,0,0.1)'
                       : '0 0 14px rgba(0,0,0,0.4)',

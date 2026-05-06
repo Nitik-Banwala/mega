@@ -11,13 +11,18 @@ import 'swiper/css/effect-coverflow'
 
 export default function Gallery() {
     const [slidesPerView, setSlidesPerView] = useState(2.9)
+    const [screenWidth, setScreenWidth] = useState(0) // 👈 added
+
     const loopCards = GALLERY.length < 6 ? [...GALLERY, ...GALLERY, ...GALLERY] : GALLERY
 
     useEffect(() => {
         const handleResize = () => {
-            if (window.innerWidth < 768) {
+            const width = window.innerWidth
+            setScreenWidth(width)
+
+            if (width < 768) {
                 setSlidesPerView(1.2)
-            } else if (window.innerWidth < 1024) {
+            } else if (width < 1024) {
                 setSlidesPerView(1.8)
             } else {
                 setSlidesPerView(2.9)
@@ -32,8 +37,11 @@ export default function Gallery() {
     return (
         <div className='bg-[#02011D] -mt-1'>
             <div className="relative w-full max-w-full lg:max-w-[1617.1px] mx-auto py-12 md:py-16 lg:py-20 overflow-x-hidden overflow-y-visible px-4 md:px-6 lg:px-0">
-                <h2 className='text-4xl md:text-5xl lg:text-[72px] text-white leading-[100%] font-normal text-center mb-8 md:mb-10 lg:mb-12'>GALL<span className='text-[#EE252B]'>ERY</span></h2>
-                <button className="prev-btn absolute left-0 md:left-2 lg:left-0 top-1/2 -translate-y-1/2 z-30 cursor-pointer">
+                <h2 className='text-4xl md:text-5xl lg:text-[72px] text-white leading-[100%] font-normal text-center mb-8 md:mb-10 lg:mb-12'>
+                    GALL<span className='text-[#EE252B]'>ERY</span>
+                </h2>
+
+                <button className="prev-btn absolute left-0 md:left-2 lg:left-0 top-[56%] -translate-y-1/2 z-30 cursor-pointer">
                     <Image
                         src="/assets/images/png/prev.png"
                         width={124}
@@ -42,7 +50,8 @@ export default function Gallery() {
                         className='w-16 h-12 md:w-20 md:h-16 lg:w-[124px] lg:h-[85px]'
                     />
                 </button>
-                <button className="next-btn absolute right-0 md:right-2 lg:right-0 top-1/2 -translate-y-1/2 z-30 cursor-pointer">
+
+                <button className="next-btn absolute right-0 md:right-2 lg:right-0 top-[56%] -translate-y-1/2 z-30 cursor-pointer">
                     <Image
                         src="/assets/images/png/next.png"
                         width={124}
@@ -81,8 +90,8 @@ export default function Gallery() {
                                     <div
                                         className="relative overflow-hidden transition-all duration-500"
                                         style={{
-                                            width: window.innerWidth < 768 ? 280 : window.innerWidth < 1024 ? 350 : 463,
-                                            height: window.innerWidth < 768 ? 393 : window.innerWidth < 1024 ? 490 : 648,
+                                            width: screenWidth < 768 ? 280 : screenWidth < 1024 ? 350 : 463,
+                                            height: screenWidth < 768 ? 393 : screenWidth < 1024 ? 490 : 648,
                                             border: isActive
                                                 ? '3px solid #d4a000'
                                                 : '2px solid rgba(255,255,255,0.15)',

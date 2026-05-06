@@ -21,7 +21,7 @@ const Hero = () => {
                     </div>
                     <div className='flex justify-center lg:justify-end '>
                         <Image
-                            src={'/assets/images/png/mint-now.png'}
+                            src={'/assets/images/png/mintnow.png'}
                             width={422}
                             height={593}
                             alt='mint'

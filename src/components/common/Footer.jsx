@@ -7,7 +7,7 @@ const Footer = () => {
       <div className='bg-[#02001F] pt-[215.1px] px-4 pb-6 -mt-1'>
         <div className='max-w-[545.1px] mx-auto flex flex-col items-center  '>
           <Image
-            src={'/assets/images/png/nav_logo.png'}
+            src={'/assets/images/png/navlogo.png'}
             width={125}
             height={125}
             alt='logo'

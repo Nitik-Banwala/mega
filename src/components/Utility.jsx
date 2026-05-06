@@ -7,14 +7,14 @@ const Utility = () => {
             <div className=' flex flex-col text-center items-center md:text-start md:items-start md:flex-row gap-6 max-w-330 mx-auto pt-32.5 '>
                 <div> 
                     <Image 
-                    src={'/assets/images/png/blue-mint.png'}
+                    src={'/assets/images/png/bluemint.png'}
                     width={312}
                     height={436}
                     alt='mint-blue'/>
                 </div>
                 <div className='mt-20'>
                     <Image 
-                    src={'/assets/images/png/gold-mint.png'}
+                    src={'/assets/images/png/goldmint.png'}
                     width={312}
                     height={436}
                     alt='mint-gold'/>
