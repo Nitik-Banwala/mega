@@ -26,7 +26,7 @@ export default function Navbar() {
   className={`fixed top-0 left-0 right-0 z-90 transition-all duration-300 bg-[linear-gradient(180deg,#444A55_76%,transparent_68%)]`}
 >
         <div className="max-w-[1920.1px] mx-auto px-6 xl:px-16 2xl:px-24">
-          <div className="flex  justify-between h-20 md:h-34">
+          <div className="flex  justify-between h-34">
 
             {/* Logo */}
             <a href="/" className="shrink-0 mt-3.75">
@@ -76,7 +76,7 @@ export default function Navbar() {
             </div>
 
             <button
-              className="lg:hidden relative w-8 h-8 flex flex-col justify-center items-center"
+              className="lg:hidden relative w-8 h-8 mt-9 flex flex-col justify-center items-center"
               onClick={() => setIsOpen(!isOpen)}
             >
               <span
