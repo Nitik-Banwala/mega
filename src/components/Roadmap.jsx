@@ -33,9 +33,8 @@ const Roadmap = () => {
 
           {/* Roadmap Items */}
           {ROADMAP.map((item, i) => (
-            <div className="relative w-full max-sm:px-4" key={item.id}>
-              
-              {/* Icon */}
+            <div className="relative w-full max-sm:px-4"
+             key={item.id}>  
               {item.icon && (
                 <div className="absolute hidden sm:block -top-0.5 max-sm:left-6 left-[44px] md:left-[78px] lg:left-1/2 -translate-x-1/2 z-10">
                   <img

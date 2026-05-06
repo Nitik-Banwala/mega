@@ -71,7 +71,8 @@ export default function Navbar() {
               <Image
               src={'/assets/images/png/whitepaper.png'}
               width={169}
-              height={122}/>
+              height={122}
+              alt='paper'/>
               </a>
             </div>
 
