@@ -29,9 +29,29 @@
 }
 
 @font-face {
-  font-family:Nau_Sea;
+  font-family: Nau_Sea;
   src: url(../../public/assets/font/Nau_Sea.otf);
 }
-*{
+
+* {
   font-family: Nau_sea;
+}
+
+@theme {
+  /* color */
+  --color-whity: #d4a000;
+  --color-blacky: #EE252B;
+  --color-dark: #02011D;
+  --color-light:#02001F;
+  --color-gray: #444A55;
+
+
+  /* text-size */
+  --text-custom-10xl: 144px;
+  --text-custom-7xl: 72px;
+
+  /* line-height */
+  --leading-100: 100%;
+--leading-150:150%;
+
 }

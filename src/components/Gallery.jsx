@@ -35,10 +35,10 @@ export default function Gallery() {
     }, [])
 
     return (
-        <div className='bg-[#02011D] -mt-1'>
+        <div className='bg-dark -mt-1'>
             <div className="relative w-full max-w-full lg:max-w-[1617.1px] mx-auto py-12 md:py-16 lg:py-20 overflow-x-hidden overflow-y-visible px-4 md:px-6 lg:px-0">
-                <h2 className='text-4xl md:text-5xl lg:text-[72px] text-white leading-[100%] font-normal text-center mb-8 md:mb-10 lg:mb-12'>
-                    GALL<span className='text-[#EE252B]'>ERY</span>
+                <h2 className='text-4xl md:text-5xl lg:text-custom-7xl text-white leading-100 font-normal text-center mb-8 md:mb-10 lg:mb-12'>
+                    GALL<span className='text-blacky'>ERY</span>
                 </h2>
 
                 <button className="prev-btn absolute left-0 md:left-2 lg:left-0 top-[56%] -translate-y-1/2 z-30 cursor-pointer">
@@ -73,7 +73,6 @@ export default function Gallery() {
                     loop={true}
                     loopedSlides={loopCards.length}
                     speed={800}
-                    pointerCursor={true}
                     coverflowEffect={{
                         rotate: 0,
                         stretch: -40,
@@ -81,7 +80,7 @@ export default function Gallery() {
                         modifier: 2,
                         slideShadows: false,
                     }}
-                    className="characterSwiper max-w-330 overflow-hidden!"
+                    className="characterSwiper cursor-pointer max-w-330 overflow-hidden!"
                 >
                     {loopCards.map((card, index) => (
                         <SwiperSlide key={`${card.id}-${index}`}>
@@ -100,10 +99,10 @@ export default function Gallery() {
                                     >
                                         {isActive && (
                                             <>
-                                                <span className="absolute top-2 left-2 w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 border-t-[3px] border-l-[3px] border-[#d4a000] rounded-tl z-10" />
-                                                <span className="absolute top-2 right-2 w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 border-t-[3px] border-r-[3px] border-[#d4a000] rounded-tr z-10" />
-                                                <span className="absolute bottom-2 left-2 w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 border-b-[3px] border-l-[3px] border-[#d4a000] rounded-bl z-10" />
-                                                <span className="absolute bottom-2 right-2 w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 border-b-[3px] border-r-[3px] border-[#d4a000] rounded-br z-10" />
+                                                <span className="absolute top-2 left-2 w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 border-t-[3px] border-l-[3px] border-whity rounded-tl z-10" />
+                                                <span className="absolute top-2 right-2 w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 border-t-[3px] border-r-[3px] border-whity rounded-tr z-10" />
+                                                <span className="absolute bottom-2 left-2 w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 border-b-[3px] border-l-[3px] border-whity rounded-bl z-10" />
+                                                <span className="absolute bottom-2 right-2 w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 border-b-[3px] border-r-[3px] border-whity rounded-br z-10" />
                                             </>
                                         )}
 

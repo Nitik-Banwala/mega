@@ -10,8 +10,8 @@ const Roadmap = () => {
     >
       <div className="flex flex-col items-center justify-center">
         <div className="bg-dark-blue w-full pt-20 sm:pt-28 md:pt-[160px] lg:pt-[170px] xl:pt-[215px] relative px-5">
-          <h2 className="text-[72px] text-white leading-[100%] font-normal text-center mb-12">
-            ROAD<span className="text-[#EE252B]">MAP</span>
+          <h2 className="text-custom-7xl text-white leading-100 font-normal text-center mb-12">
+            ROAD<span className="text-blacky">MAP</span>
           </h2>
         </div>
 

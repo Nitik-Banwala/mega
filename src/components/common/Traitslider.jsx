@@ -69,7 +69,6 @@ export default function TraitSlider() {
         loop={true}
         loopedSlides={loopCards.length}
         speed={800}
-        pointerCursor={true}
         coverflowEffect={{
           rotate: 0,
           stretch: -40,
@@ -77,7 +76,7 @@ export default function TraitSlider() {
           modifier: 2,
           slideShadows: false,
         }}
-        className="characterSwiper py-10! max-w-330 overflow-hidden!"
+        className="characterSwiper cursor-pointer py-10! max-w-330 overflow-hidden!"
       >
         {loopCards.map((card, index) => (
           <SwiperSlide key={`${card.id}-${index}`}>
@@ -96,10 +95,10 @@ export default function TraitSlider() {
                 >
                   {isActive && (
                     <>
-                      <span className="absolute top-2 left-2 w-7 h-7 border-t-[3px] border-l-[3px] border-[#d4a000] rounded-tl z-10" />
-                      <span className="absolute top-2 right-2 w-7 h-7 border-t-[3px] border-r-[3px] border-[#d4a000] rounded-tr z-10" />
-                      <span className="absolute bottom-2 left-2 w-7 h-7 border-b-[3px] border-l-[3px] border-[#d4a000] rounded-bl z-10" />
-                      <span className="absolute bottom-2 right-2 w-7 h-7 border-b-[3px] border-r-[3px] border-[#d4a000] rounded-br z-10" />
+                      <span className="absolute top-2 left-2 w-7 h-7 border-t-[3px] border-l-[3px] border-whity rounded-tl z-10" />
+                      <span className="absolute top-2 right-2 w-7 h-7 border-t-[3px] border-r-[3px] border-whity rounded-tr z-10" />
+                      <span className="absolute bottom-2 left-2 w-7 h-7 border-b-[3px] border-l-[3px] border-whity rounded-bl z-10" />
+                      <span className="absolute bottom-2 right-2 w-7 h-7 border-b-[3px] border-r-[3px] border-whity rounded-br z-10" />
                     </>
                   )}
 

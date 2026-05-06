@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react'
 import { SOCIAL_LINKS } from '@/utils/helper'
 import { NAV_LINKS } from '@/utils/helper'
 import Image from 'next/image'
+import Icons from './Icons'
+import Link from 'next/link'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -23,57 +25,58 @@ export default function Navbar() {
   return (
     <>
      <nav
-  className={`fixed top-0 left-0 right-0 z-90 transition-all duration-300 bg-[linear-gradient(180deg,#444A55_76%,transparent_68%)]`}
+  className={`fixed top-0 left-0 right-0 z-90 transition-all duration-300 bg-gray`}
 >
         <div className="max-w-[1920.1px] mx-auto px-6 xl:px-16 2xl:px-24">
-          <div className="flex  justify-between h-34">
+          <div className="flex  justify-between h-24.5">
 
             {/* Logo */}
-            <a href="/" className="shrink-0 mt-3.75">
+            <Link href="/" className="shrink-0 mt-3.75">
               <Image
                 src={'/assets/images/png/logo.png'}
                 width={68}
                 height={68}
                 alt='logo'
               />
-            </a>
+            </Link>
 
    
             <div className="hidden lg:flex gap-8 mt-10">
               {NAV_LINKS.map((link) => (
-                <a
+                <Link
                   key={link.label}
-                  href={link.path}
+                  href=""
                   onClick={() => setActiveLink(link.label)}
-                  className={`uppercase font-bold ${
+                  className={`uppercase font-normal w-fit  ${
                     activeLink === link.label ? 'text-red-500' : 'text-white'
                   }`}
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </div>
 
             <div className="hidden lg:flex gap-4">
               {SOCIAL_LINKS.map((s, i) => (
-                <a
+                <Link
                   key={i}
-                  href={s.href}
+                  href=""
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 flex items-center mt-7.5 justify-center border rounded-full text-white hover:text-red-500"
+                  className="w-9 h-9 flex cursor-pointer items-center mt-7.5 justify-center rounded-full t bg-white"
                 >
-                  {s.icon}
-                </a>
+                  <Icons icon={s.icon}/>
+                </Link>
               ))}
 
-              <a href="/whitepaper" className="px-4 py-2  text-white">
+              <Link href="/whitepaper" className="px-4 py-1  text-white">
               <Image
               src={'/assets/images/png/whitepaper.png'}
               width={169}
-              height={122}
-              alt='paper'/>
-              </a>
+              height={89}
+              alt='paper'
+              />
+              </Link>
             </div>
 
             <button
@@ -117,11 +120,11 @@ export default function Navbar() {
 
 
         {NAV_LINKS.map((link, i) => (
-          <a
+          <Link
             key={link.label}
-            href={link.path}
+            href=""
             onClick={() => setIsOpen(false)}
-            className="text-2xl text-white uppercase font-bold hover:text-red-500"
+            className="text-2xl text-white uppercase  hover:text-red-500"
             style={{
               transform: isOpen ? 'translateX(0)' : 'translateX(40px)',
               opacity: isOpen ? 1 : 0,
@@ -129,33 +132,33 @@ export default function Navbar() {
             }}
           >
             {link.label}
-          </a>
+          </Link>
         ))}
 
 
         <div className="flex gap-4">
           {SOCIAL_LINKS.map((s, i) => (
-            <a
+            <Link
               key={i}
-              href={s.href}
+              href=""
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 flex items-center justify-center border rounded-full"
+              className="w-10 h-10 cursor-pointer flex items-center justify-center border rounded-full"
               style={{
                 transform: isOpen ? 'scale(1)' : 'scale(0.6)',
                 opacity: isOpen ? 1 : 0,
                 transition: `all 0.4s cubic-bezier(0.22,1,0.36,1) ${(NAV_LINKS.length + i) * 0.08}s`,
               }}
             >
-              {s.icon}
-            </a>
+              <Icons icon={s.icon}/>
+            </Link>
           ))}
         </div>
 
         {/* CTA */}
-        <a href="/whitepaper" className="border px-6 py-2">
+        <Link href="/whitepaper" className="border px-6 py-2">
           Whitepaper
-        </a>
+        </Link>
 
       </div>
     </>
